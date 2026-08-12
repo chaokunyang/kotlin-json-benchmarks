@@ -1,0 +1,914 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.foryFromJsonBytes",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 3840858.6913650557,
+            "scoreError" : 78613.62278371179,
+            "scoreConfidence" : [
+                3762245.068581344,
+                3919472.3141487674
+            ],
+            "scorePercentiles" : {
+                "0.0" : 3816988.2093567187,
+                "50.0" : 3833219.3162148576,
+                "90.0" : 3868489.063243802,
+                "95.0" : 3868489.063243802,
+                "99.0" : 3868489.063243802,
+                "99.9" : 3868489.063243802,
+                "99.99" : 3868489.063243802,
+                "99.999" : 3868489.063243802,
+                "99.9999" : 3868489.063243802,
+                "100.0" : 3868489.063243802
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    3868489.063243802,
+                    3854376.040541028,
+                    3831220.8274688744,
+                    3816988.2093567187,
+                    3833219.3162148576
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.foryFromJsonString",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 3535238.64355627,
+            "scoreError" : 53773.25248829194,
+            "scoreConfidence" : [
+                3481465.391067978,
+                3589011.8960445616
+            ],
+            "scorePercentiles" : {
+                "0.0" : 3515889.6318179723,
+                "50.0" : 3537878.7902402435,
+                "90.0" : 3549587.7322954107,
+                "95.0" : 3549587.7322954107,
+                "99.0" : 3549587.7322954107,
+                "99.9" : 3549587.7322954107,
+                "99.99" : 3549587.7322954107,
+                "99.999" : 3549587.7322954107,
+                "99.9999" : 3549587.7322954107,
+                "100.0" : 3549587.7322954107
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    3546165.8628432574,
+                    3549587.7322954107,
+                    3537878.7902402435,
+                    3526671.2005844675,
+                    3515889.6318179723
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.foryToJsonBytes",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1.0970447956967954E7,
+            "scoreError" : 98198.66812938792,
+            "scoreConfidence" : [
+                1.0872249288838565E7,
+                1.1068646625097342E7
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1.093650989263055E7,
+                "50.0" : 1.097032159259192E7,
+                "90.0" : 1.1007218425444894E7,
+                "95.0" : 1.1007218425444894E7,
+                "99.0" : 1.1007218425444894E7,
+                "99.9" : 1.1007218425444894E7,
+                "99.99" : 1.1007218425444894E7,
+                "99.999" : 1.1007218425444894E7,
+                "99.9999" : 1.1007218425444894E7,
+                "100.0" : 1.1007218425444894E7
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1.1007218425444894E7,
+                    1.093650989263055E7,
+                    1.0975945015213693E7,
+                    1.097032159259192E7,
+                    1.0962244858958716E7
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.foryToJsonString",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 7768791.051166068,
+            "scoreError" : 141368.67947692025,
+            "scoreConfidence" : [
+                7627422.371689147,
+                7910159.730642988
+            ],
+            "scorePercentiles" : {
+                "0.0" : 7710277.002208239,
+                "50.0" : 7771397.580388963,
+                "90.0" : 7802207.898772361,
+                "95.0" : 7802207.898772361,
+                "99.0" : 7802207.898772361,
+                "99.9" : 7802207.898772361,
+                "99.99" : 7802207.898772361,
+                "99.999" : 7802207.898772361,
+                "99.9999" : 7802207.898772361,
+                "100.0" : 7802207.898772361
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    7802207.898772361,
+                    7710277.002208239,
+                    7762844.996345184,
+                    7771397.580388963,
+                    7797227.778115591
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonFromJsonBytes",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 536067.6835466556,
+            "scoreError" : 7929.158571607514,
+            "scoreConfidence" : [
+                528138.524975048,
+                543996.8421182631
+            ],
+            "scorePercentiles" : {
+                "0.0" : 532514.3339746104,
+                "50.0" : 536429.9206203589,
+                "90.0" : 537600.5670786743,
+                "95.0" : 537600.5670786743,
+                "99.0" : 537600.5670786743,
+                "99.9" : 537600.5670786743,
+                "99.99" : 537600.5670786743,
+                "99.999" : 537600.5670786743,
+                "99.9999" : 537600.5670786743,
+                "100.0" : 537600.5670786743
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    537600.5670786743,
+                    536429.9206203589,
+                    532514.3339746104,
+                    536407.5423846075,
+                    537386.0536750269
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonFromJsonString",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 510031.26621689193,
+            "scoreError" : 2828.059128873631,
+            "scoreConfidence" : [
+                507203.2070880183,
+                512859.32534576557
+            ],
+            "scorePercentiles" : {
+                "0.0" : 509004.68134765513,
+                "50.0" : 510017.9351727504,
+                "90.0" : 511019.11314961984,
+                "95.0" : 511019.11314961984,
+                "99.0" : 511019.11314961984,
+                "99.9" : 511019.11314961984,
+                "99.99" : 511019.11314961984,
+                "99.999" : 511019.11314961984,
+                "99.9999" : 511019.11314961984,
+                "100.0" : 511019.11314961984
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    509805.9591135269,
+                    509004.68134765513,
+                    511019.11314961984,
+                    510017.9351727504,
+                    510308.64230090735
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonToJsonBytes",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1962426.187749233,
+            "scoreError" : 40045.319781650986,
+            "scoreConfidence" : [
+                1922380.867967582,
+                2002471.5075308841
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1946546.079259274,
+                "50.0" : 1967275.7417283617,
+                "90.0" : 1971747.1832446533,
+                "95.0" : 1971747.1832446533,
+                "99.0" : 1971747.1832446533,
+                "99.9" : 1971747.1832446533,
+                "99.99" : 1971747.1832446533,
+                "99.999" : 1971747.1832446533,
+                "99.9999" : 1971747.1832446533,
+                "100.0" : 1971747.1832446533
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1957425.5435375585,
+                    1971747.1832446533,
+                    1946546.079259274,
+                    1967275.7417283617,
+                    1969136.3909763177
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonToJsonString",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 2086058.9134552027,
+            "scoreError" : 66284.54539814274,
+            "scoreConfidence" : [
+                2019774.36805706,
+                2152343.4588533454
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2056483.4415633804,
+                "50.0" : 2093094.5779203803,
+                "90.0" : 2100540.9608320217,
+                "95.0" : 2100540.9608320217,
+                "99.0" : 2100540.9608320217,
+                "99.9" : 2100540.9608320217,
+                "99.99" : 2100540.9608320217,
+                "99.999" : 2100540.9608320217,
+                "99.9999" : 2100540.9608320217,
+                "100.0" : 2100540.9608320217
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2056483.4415633804,
+                    2093159.3501203775,
+                    2087016.236839854,
+                    2100540.9608320217,
+                    2093094.5779203803
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxFromJsonBytes",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 563904.4535839139,
+            "scoreError" : 17579.82133243758,
+            "scoreConfidence" : [
+                546324.6322514763,
+                581484.2749163514
+            ],
+            "scorePercentiles" : {
+                "0.0" : 555964.282754099,
+                "50.0" : 565676.9223181122,
+                "90.0" : 567530.1805322478,
+                "95.0" : 567530.1805322478,
+                "99.0" : 567530.1805322478,
+                "99.9" : 567530.1805322478,
+                "99.99" : 567530.1805322478,
+                "99.999" : 567530.1805322478,
+                "99.9999" : 567530.1805322478,
+                "100.0" : 567530.1805322478
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    555964.282754099,
+                    567530.1805322478,
+                    565676.9223181122,
+                    564539.9476656906,
+                    565810.9346494202
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxFromJsonString",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 608064.9162095792,
+            "scoreError" : 2959.9164050609306,
+            "scoreConfidence" : [
+                605104.9998045183,
+                611024.8326146401
+            ],
+            "scorePercentiles" : {
+                "0.0" : 607320.5164966353,
+                "50.0" : 607657.5053363675,
+                "90.0" : 609081.2821426829,
+                "95.0" : 609081.2821426829,
+                "99.0" : 609081.2821426829,
+                "99.9" : 609081.2821426829,
+                "99.99" : 609081.2821426829,
+                "99.999" : 609081.2821426829,
+                "99.9999" : 609081.2821426829,
+                "100.0" : 609081.2821426829
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    608680.9059700035,
+                    607584.3711022071,
+                    607657.5053363675,
+                    609081.2821426829,
+                    607320.5164966353
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxToJsonBytes",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 2171843.4070968926,
+            "scoreError" : 44178.95120488264,
+            "scoreConfidence" : [
+                2127664.45589201,
+                2216022.358301775
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2151879.8165910784,
+                "50.0" : 2175196.2850734293,
+                "90.0" : 2181268.529389156,
+                "95.0" : 2181268.529389156,
+                "99.0" : 2181268.529389156,
+                "99.9" : 2181268.529389156,
+                "99.99" : 2181268.529389156,
+                "99.999" : 2181268.529389156,
+                "99.9999" : 2181268.529389156,
+                "100.0" : 2181268.529389156
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2181268.529389156,
+                    2175196.2850734293,
+                    2174412.695151091,
+                    2151879.8165910784,
+                    2176459.7092797076
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxToJsonString",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 2196900.7296704226,
+            "scoreError" : 14872.730621248957,
+            "scoreConfidence" : [
+                2182027.9990491737,
+                2211773.4602916716
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2193098.507762031,
+                "50.0" : 2194968.67696776,
+                "90.0" : 2202201.078068313,
+                "95.0" : 2202201.078068313,
+                "99.0" : 2202201.078068313,
+                "99.9" : 2202201.078068313,
+                "99.99" : 2202201.078068313,
+                "99.999" : 2202201.078068313,
+                "99.9999" : 2202201.078068313,
+                "100.0" : 2202201.078068313
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    2202201.078068313,
+                    2193098.507762031,
+                    2194968.67696776,
+                    2199695.9678800534,
+                    2194539.4176739543
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.moshiFromJsonBytes",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 461808.3047223284,
+            "scoreError" : 16388.4306488537,
+            "scoreConfidence" : [
+                445419.87407347467,
+                478196.7353711821
+            ],
+            "scorePercentiles" : {
+                "0.0" : 454959.3933637089,
+                "50.0" : 461696.23614709865,
+                "90.0" : 465463.03863483167,
+                "95.0" : 465463.03863483167,
+                "99.0" : 465463.03863483167,
+                "99.9" : 465463.03863483167,
+                "99.99" : 465463.03863483167,
+                "99.999" : 465463.03863483167,
+                "99.9999" : 465463.03863483167,
+                "100.0" : 465463.03863483167
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    461696.23614709865,
+                    465293.3779330751,
+                    461629.47753292724,
+                    465463.03863483167,
+                    454959.3933637089
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.moshiFromJsonString",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 525297.7276239658,
+            "scoreError" : 7762.743874428966,
+            "scoreConfidence" : [
+                517534.98374953686,
+                533060.4714983947
+            ],
+            "scorePercentiles" : {
+                "0.0" : 522789.5563023948,
+                "50.0" : 524959.5679529144,
+                "90.0" : 528266.5817000249,
+                "95.0" : 528266.5817000249,
+                "99.0" : 528266.5817000249,
+                "99.9" : 528266.5817000249,
+                "99.99" : 528266.5817000249,
+                "99.999" : 528266.5817000249,
+                "99.9999" : 528266.5817000249,
+                "100.0" : 528266.5817000249
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    522789.5563023948,
+                    525953.9275721626,
+                    524519.0045923317,
+                    524959.5679529144,
+                    528266.5817000249
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.moshiToJsonBytes",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1006487.9786767535,
+            "scoreError" : 21320.60006516425,
+            "scoreConfidence" : [
+                985167.3786115892,
+                1027808.5787419177
+            ],
+            "scorePercentiles" : {
+                "0.0" : 997736.6412222078,
+                "50.0" : 1007363.7419392514,
+                "90.0" : 1012231.3958071802,
+                "95.0" : 1012231.3958071802,
+                "99.0" : 1012231.3958071802,
+                "99.9" : 1012231.3958071802,
+                "99.99" : 1012231.3958071802,
+                "99.999" : 1012231.3958071802,
+                "99.9999" : 1012231.3958071802,
+                "100.0" : 1012231.3958071802
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1005316.207556653,
+                    1007363.7419392514,
+                    1009791.9068584751,
+                    1012231.3958071802,
+                    997736.6412222078
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "org.apache.fory.benchmark.json.MediaContentBenchmark.moshiToJsonString",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java",
+        "jvmArgs" : [
+            "-Dfile.encoding=UTF-8",
+            "-Djava.io.tmpdir=/Users/chaokunyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+            "-Duser.country=US",
+            "-Duser.language=en",
+            "-Duser.variant",
+            "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+        ],
+        "jdkVersion" : "25.0.3",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.0.3",
+        "warmupIterations" : 3,
+        "warmupTime" : "2 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1019310.8349713956,
+            "scoreError" : 10245.703649924813,
+            "scoreConfidence" : [
+                1009065.1313214707,
+                1029556.5386213204
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1015570.6653985805,
+                "50.0" : 1019610.7359560583,
+                "90.0" : 1022690.5373293051,
+                "95.0" : 1022690.5373293051,
+                "99.0" : 1022690.5373293051,
+                "99.9" : 1022690.5373293051,
+                "99.99" : 1022690.5373293051,
+                "99.999" : 1022690.5373293051,
+                "99.9999" : 1022690.5373293051,
+                "100.0" : 1022690.5373293051
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    1018154.5475197865,
+                    1020527.6886532466,
+                    1015570.6653985805,
+                    1019610.7359560583,
+                    1022690.5373293051
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]

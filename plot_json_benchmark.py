@@ -18,10 +18,10 @@ SERIALIZERS = ("fory", "kotlinx", "moshi", "jackson")
 OPERATIONS = ("to", "from")
 REPRESENTATIONS = ("string", "bytes")
 LABELS = {
-    "fory": "Fory JSON",
+    "fory": "Fory JSON Kotlin",
     "kotlinx": "kotlinx.serialization",
     "moshi": "Moshi",
-    "jackson": "Jackson",
+    "jackson": "Jackson Kotlin",
 }
 COLORS = {
     "fory": "#FF6F01",

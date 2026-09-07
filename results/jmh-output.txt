@@ -1,0 +1,607 @@
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kspKotlin UP-TO-DATE
+> Task :compileKotlin UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :kspTestKotlin UP-TO-DATE
+> Task :compileTestKotlin UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :kspJmhKotlin UP-TO-DATE
+> Task :compileJmhKotlin UP-TO-DATE
+> Task :compileJmhJava NO-SOURCE
+> Task :processJmhResources NO-SOURCE
+> Task :jmhClasses UP-TO-DATE
+> Task :jmhRunBytecodeGenerator
+> Task :jmhCompileGeneratedClasses
+> Task :jmhJar
+
+> Task :jmh
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.foryFromJsonBytes
+
+# Run progress: 0.00% complete, ETA 00:04:16
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 4171946.629 ops/s
+# Warmup Iteration   2: 4356118.930 ops/s
+# Warmup Iteration   3: 4454412.839 ops/s
+Iteration   1: 4443419.084 ops/s
+Iteration   2: 4476774.634 ops/s
+Iteration   3: 4411398.789 ops/s
+Iteration   4: 4451813.768 ops/s
+Iteration   5: 4465302.639 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.foryFromJsonBytes":
+  4449741.783 ±(99.9%) 96022.624 ops/s [Average]
+  (min, avg, max) = (4411398.789, 4449741.783, 4476774.634), stdev = 24936.770
+  CI (99.9%): [4353719.159, 4545764.407] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.foryFromJsonString
+
+# Run progress: 6.25% complete, ETA 00:04:12
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 3782906.375 ops/s
+# Warmup Iteration   2: 4041873.986 ops/s
+# Warmup Iteration   3: 4080467.662 ops/s
+Iteration   1: 4012756.321 ops/s
+Iteration   2: 3977740.719 ops/s
+Iteration   3: 3879786.842 ops/s
+Iteration   4: 3966723.147 ops/s
+Iteration   5: 3981979.916 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.foryFromJsonString":
+  3963797.389 ±(99.9%) 192419.819 ops/s [Average]
+  (min, avg, max) = (3879786.842, 3963797.389, 4012756.321), stdev = 49970.816
+  CI (99.9%): [3771377.570, 4156217.208] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.foryToJsonBytes
+
+# Run progress: 12.50% complete, ETA 00:03:55
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 11949239.015 ops/s
+# Warmup Iteration   2: 12303761.754 ops/s
+# Warmup Iteration   3: 12335168.640 ops/s
+Iteration   1: 12266295.701 ops/s
+Iteration   2: 12297799.582 ops/s
+Iteration   3: 12297252.992 ops/s
+Iteration   4: 12363825.237 ops/s
+Iteration   5: 12347245.869 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.foryToJsonBytes":
+  12314483.876 ±(99.9%) 154089.369 ops/s [Average]
+  (min, avg, max) = (12266295.701, 12314483.876, 12363825.237), stdev = 40016.520
+  CI (99.9%): [12160394.507, 12468573.245] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.foryToJsonString
+
+# Run progress: 18.75% complete, ETA 00:03:39
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 8189848.846 ops/s
+# Warmup Iteration   2: 8468828.164 ops/s
+# Warmup Iteration   3: 8449501.405 ops/s
+Iteration   1: 8477694.080 ops/s
+Iteration   2: 8471508.044 ops/s
+Iteration   3: 8441966.447 ops/s
+Iteration   4: 8467929.874 ops/s
+Iteration   5: 8458621.682 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.foryToJsonString":
+  8463544.025 ±(99.9%) 53519.333 ops/s [Average]
+  (min, avg, max) = (8441966.447, 8463544.025, 8477694.080), stdev = 13898.801
+  CI (99.9%): [8410024.692, 8517063.358] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonFromJsonBytes
+
+# Run progress: 25.00% complete, ETA 00:03:22
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 494339.981 ops/s
+# Warmup Iteration   2: 529514.186 ops/s
+# Warmup Iteration   3: 532753.739 ops/s
+Iteration   1: 529946.798 ops/s
+Iteration   2: 531994.878 ops/s
+Iteration   3: 528625.843 ops/s
+Iteration   4: 534804.883 ops/s
+Iteration   5: 532951.462 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonFromJsonBytes":
+  531664.773 ±(99.9%) 9394.973 ops/s [Average]
+  (min, avg, max) = (528625.843, 531664.773, 534804.883), stdev = 2439.845
+  CI (99.9%): [522269.800, 541059.746] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonFromJsonString
+
+# Run progress: 31.25% complete, ETA 00:03:05
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 476013.112 ops/s
+# Warmup Iteration   2: 509656.572 ops/s
+# Warmup Iteration   3: 501397.165 ops/s
+Iteration   1: 509816.386 ops/s
+Iteration   2: 507416.094 ops/s
+Iteration   3: 508957.306 ops/s
+Iteration   4: 505228.520 ops/s
+Iteration   5: 509076.728 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonFromJsonString":
+  508099.007 ±(99.9%) 7034.166 ops/s [Average]
+  (min, avg, max) = (505228.520, 508099.007, 509816.386), stdev = 1826.751
+  CI (99.9%): [501064.841, 515133.173] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonToJsonBytes
+
+# Run progress: 37.50% complete, ETA 00:02:48
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1888485.542 ops/s
+# Warmup Iteration   2: 1992808.054 ops/s
+# Warmup Iteration   3: 1946377.954 ops/s
+Iteration   1: 1969238.011 ops/s
+Iteration   2: 1923811.246 ops/s
+Iteration   3: 1952404.859 ops/s
+Iteration   4: 1961117.057 ops/s
+Iteration   5: 1963881.107 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonToJsonBytes":
+  1954090.456 ±(99.9%) 69267.460 ops/s [Average]
+  (min, avg, max) = (1923811.246, 1954090.456, 1969238.011), stdev = 17988.539
+  CI (99.9%): [1884822.996, 2023357.916] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonToJsonString
+
+# Run progress: 43.75% complete, ETA 00:02:31
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 2088375.559 ops/s
+# Warmup Iteration   2: 2099522.568 ops/s
+# Warmup Iteration   3: 2138508.061 ops/s
+Iteration   1: 2190690.164 ops/s
+Iteration   2: 2172228.071 ops/s
+Iteration   3: 2157582.202 ops/s
+Iteration   4: 2140617.819 ops/s
+Iteration   5: 2171313.728 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.jacksonToJsonString":
+  2166486.397 ±(99.9%) 71795.674 ops/s [Average]
+  (min, avg, max) = (2140617.819, 2166486.397, 2190690.164), stdev = 18645.109
+  CI (99.9%): [2094690.723, 2238282.071] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxFromJsonBytes
+
+# Run progress: 50.00% complete, ETA 00:02:14
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 688460.030 ops/s
+# Warmup Iteration   2: 730524.588 ops/s
+# Warmup Iteration   3: 728199.897 ops/s
+Iteration   1: 728245.669 ops/s
+Iteration   2: 726668.946 ops/s
+Iteration   3: 729411.391 ops/s
+Iteration   4: 732113.858 ops/s
+Iteration   5: 731590.205 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxFromJsonBytes":
+  729606.014 ±(99.9%) 8768.374 ops/s [Average]
+  (min, avg, max) = (726668.946, 729606.014, 732113.858), stdev = 2277.119
+  CI (99.9%): [720837.640, 738374.388] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxFromJsonString
+
+# Run progress: 56.25% complete, ETA 00:01:57
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 616126.863 ops/s
+# Warmup Iteration   2: 635865.714 ops/s
+# Warmup Iteration   3: 630974.086 ops/s
+Iteration   1: 637683.609 ops/s
+Iteration   2: 631876.285 ops/s
+Iteration   3: 630581.257 ops/s
+Iteration   4: 620994.009 ops/s
+Iteration   5: 634682.806 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxFromJsonString":
+  631163.593 ±(99.9%) 24289.824 ops/s [Average]
+  (min, avg, max) = (620994.009, 631163.593, 637683.609), stdev = 6307.990
+  CI (99.9%): [606873.769, 655453.417] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxToJsonBytes
+
+# Run progress: 62.50% complete, ETA 00:01:41
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1042216.415 ops/s
+# Warmup Iteration   2: 1079910.951 ops/s
+# Warmup Iteration   3: 1053121.070 ops/s
+Iteration   1: 1061628.119 ops/s
+Iteration   2: 1071344.834 ops/s
+Iteration   3: 1060290.159 ops/s
+Iteration   4: 1077599.514 ops/s
+Iteration   5: 1027352.810 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxToJsonBytes":
+  1059643.087 ±(99.9%) 74725.940 ops/s [Average]
+  (min, avg, max) = (1027352.810, 1059643.087, 1077599.514), stdev = 19406.089
+  CI (99.9%): [984917.147, 1134369.028] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxToJsonString
+
+# Run progress: 68.75% complete, ETA 00:01:24
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 2198998.655 ops/s
+# Warmup Iteration   2: 2359032.889 ops/s
+# Warmup Iteration   3: 2345787.559 ops/s
+Iteration   1: 2331319.041 ops/s
+Iteration   2: 2299358.764 ops/s
+Iteration   3: 2357889.178 ops/s
+Iteration   4: 2337932.446 ops/s
+Iteration   5: 2330184.624 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.kotlinxToJsonString":
+  2331336.810 ±(99.9%) 81057.059 ops/s [Average]
+  (min, avg, max) = (2299358.764, 2331336.810, 2357889.178), stdev = 21050.261
+  CI (99.9%): [2250279.752, 2412393.869] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.moshiFromJsonBytes
+
+# Run progress: 75.00% complete, ETA 00:01:07
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 676536.964 ops/s
+# Warmup Iteration   2: 707467.239 ops/s
+# Warmup Iteration   3: 701417.829 ops/s
+Iteration   1: 709348.154 ops/s
+Iteration   2: 700496.707 ops/s
+Iteration   3: 712486.441 ops/s
+Iteration   4: 703257.974 ops/s
+Iteration   5: 680344.927 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.moshiFromJsonBytes":
+  701186.841 ±(99.9%) 48456.924 ops/s [Average]
+  (min, avg, max) = (680344.927, 701186.841, 712486.441), stdev = 12584.109
+  CI (99.9%): [652729.917, 749643.765] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.moshiFromJsonString
+
+# Run progress: 81.25% complete, ETA 00:00:50
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 501798.078 ops/s
+# Warmup Iteration   2: 519498.040 ops/s
+# Warmup Iteration   3: 520437.049 ops/s
+Iteration   1: 522375.693 ops/s
+Iteration   2: 520737.444 ops/s
+Iteration   3: 519937.231 ops/s
+Iteration   4: 507924.120 ops/s
+Iteration   5: 496249.149 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.moshiFromJsonString":
+  513444.727 ±(99.9%) 43105.868 ops/s [Average]
+  (min, avg, max) = (496249.149, 513444.727, 522375.693), stdev = 11194.457
+  CI (99.9%): [470338.859, 556550.595] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.moshiToJsonBytes
+
+# Run progress: 87.50% complete, ETA 00:00:33
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 984245.359 ops/s
+# Warmup Iteration   2: 1002488.447 ops/s
+# Warmup Iteration   3: 1011280.930 ops/s
+Iteration   1: 1008892.177 ops/s
+Iteration   2: 1003124.767 ops/s
+Iteration   3: 1021892.016 ops/s
+Iteration   4: 1014748.859 ops/s
+Iteration   5: 1030762.600 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.moshiToJsonBytes":
+  1015884.084 ±(99.9%) 41759.571 ops/s [Average]
+  (min, avg, max) = (1003124.767, 1015884.084, 1030762.600), stdev = 10844.828
+  CI (99.9%): [974124.513, 1057643.654] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.3, OpenJDK 64-Bit Server VM, 25.0.3
+# VM invoker: /opt/homebrew/Cellar/openjdk@25/25.0.3/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.apache.fory.benchmark.json.MediaContentBenchmark.moshiToJsonString
+
+# Run progress: 93.75% complete, ETA 00:00:16
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/Users/shawnyang/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 987983.799 ops/s
+# Warmup Iteration   2: 1012100.390 ops/s
+# Warmup Iteration   3: 1023337.616 ops/s
+Iteration   1: 1006511.836 ops/s
+Iteration   2: 1010198.174 ops/s
+Iteration   3: 1003348.684 ops/s
+Iteration   4: 1017907.755 ops/s
+Iteration   5: 1010302.847 ops/s
+
+
+Result "org.apache.fory.benchmark.json.MediaContentBenchmark.moshiToJsonString":
+  1009653.859 ±(99.9%) 20956.119 ops/s [Average]
+  (min, avg, max) = (1003348.684, 1009653.859, 1017907.755), stdev = 5442.238
+  CI (99.9%): [988697.740, 1030609.978] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:04:29
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                     Mode  Cnt         Score        Error  Units
+MediaContentBenchmark.foryFromJsonBytes      thrpt    5   4449741.783 ±  96022.624  ops/s
+MediaContentBenchmark.foryFromJsonString     thrpt    5   3963797.389 ± 192419.819  ops/s
+MediaContentBenchmark.foryToJsonBytes        thrpt    5  12314483.876 ± 154089.369  ops/s
+MediaContentBenchmark.foryToJsonString       thrpt    5   8463544.025 ±  53519.333  ops/s
+MediaContentBenchmark.jacksonFromJsonBytes   thrpt    5    531664.773 ±   9394.973  ops/s
+MediaContentBenchmark.jacksonFromJsonString  thrpt    5    508099.007 ±   7034.166  ops/s
+MediaContentBenchmark.jacksonToJsonBytes     thrpt    5   1954090.456 ±  69267.460  ops/s
+MediaContentBenchmark.jacksonToJsonString    thrpt    5   2166486.397 ±  71795.674  ops/s
+MediaContentBenchmark.kotlinxFromJsonBytes   thrpt    5    729606.014 ±   8768.374  ops/s
+MediaContentBenchmark.kotlinxFromJsonString  thrpt    5    631163.593 ±  24289.824  ops/s
+MediaContentBenchmark.kotlinxToJsonBytes     thrpt    5   1059643.087 ±  74725.940  ops/s
+MediaContentBenchmark.kotlinxToJsonString    thrpt    5   2331336.810 ±  81057.059  ops/s
+MediaContentBenchmark.moshiFromJsonBytes     thrpt    5    701186.841 ±  48456.924  ops/s
+MediaContentBenchmark.moshiFromJsonString    thrpt    5    513444.727 ±  43105.868  ops/s
+MediaContentBenchmark.moshiToJsonBytes       thrpt    5   1015884.084 ±  41759.571  ops/s
+MediaContentBenchmark.moshiToJsonString      thrpt    5   1009653.859 ±  20956.119  ops/s
+
+Benchmark result is saved to /Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/reports/jmh/results.json
+
+BUILD SUCCESSFUL in 4m 33s
+12 actionable tasks: 4 executed, 8 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.0/userguide/configuration_cache_enabling.html

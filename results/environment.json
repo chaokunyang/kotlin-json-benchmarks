@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-07",
+  "sourceCommit": "cbd1b2a4d018d7686a9f5662ef1ed2b3d76e9823",
+  "command": "./gradlew jmh --console=plain > results/jmh-output.txt 2>&1",
+  "machine": {
+    "cpu": "Apple M5",
+    "architecture": "arm64",
+    "logicalCpus": 10,
+    "memoryBytes": 34359738368,
+    "os": "macOS 26.4",
+    "osBuild": "25E246"
+  },
+  "jdkVersion": "25.0.3",
+  "vmName": "OpenJDK 64-Bit Server VM",
+  "vmVersion": "25.0.3",
+  "jvmArgs": [
+    "-Dfile.encoding=UTF-8",
+    "-Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+    "-Duser.country=US",
+    "-Duser.language=en",
+    "-Duser.variant",
+    "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+  ],
+  "kotlin": "2.3.20",
+  "ksp": "2.3.8",
+  "gradle": "9.3.0",
+  "gradleJmhPlugin": "0.7.3",
+  "jmh": "1.37",
+  "libraries": {
+    "fory-json-kotlin": "1.7.1",
+    "fory-json": "1.7.1",
+    "fory-core": "1.7.1",
+    "kotlinx-serialization-json": "1.11.0",
+    "moshi": "1.15.2",
+    "moshi-kotlin-codegen": "1.15.2",
+    "jackson-module-kotlin": "2.22.1"
+  },
+  "measurement": {
+    "mode": "thrpt",
+    "threads": 1,
+    "forks": 1,
+    "warmupIterations": 3,
+    "warmupTime": "2 s",
+    "measurementIterations": 5,
+    "measurementTime": "2 s"
+  },
+  "fixtureSha256": "8faba2f57ab397f319aced5cf1e8411a76785557d4c7d1703ec9d540354310a1",
+  "resultsSha256": "b0e571fdfd083a50514584946637fa990ce172c29aae4dc5b5477929e22930ef",
+  "processOutputSha256": "bac777237e5ee08dc4541d02327dc67b37c5211ee1b0ef880337e511b6d30639",
+  "methodCount": 16,
+  "measurementSamples": 80
+}

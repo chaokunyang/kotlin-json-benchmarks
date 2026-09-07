@@ -186,6 +186,8 @@ def render_plot(
         f"Kotlin JSON {model_title}{representation_title} Serialization and Deserialization Throughput",
         y=0.98,
     )
+    # Resolve formatter-dependent tick widths before calculating export margins.
+    figure.canvas.draw()
     figure.tight_layout(rect=[0, 0, 1, 0.95], w_pad=2.4)
     figure.savefig(output, dpi=170, bbox_inches="tight", pad_inches=0.12)
     plt.close(figure)

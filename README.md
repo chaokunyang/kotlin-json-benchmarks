@@ -12,6 +12,11 @@ The `Users` and `Clients` schemas come from
 
 ## Methodology
 
+Both suites were measured on an Apple M5 with 32 GiB memory, macOS 26.4, and OpenJDK 25.0.3.
+JMH 1.37 used one fork, one thread, three 2-second warmup iterations, and five 2-second
+measurement iterations. Library versions were Fory JSON Kotlin 1.7.1, kotlinx.serialization
+1.11.0, Moshi 1.15.2, and Jackson Kotlin 2.22.1. Full environment records accompany each result set.
+
 - All model properties are `val`, and the models have no public zero-argument constructor.
   Every model exercises required constructor arguments; `MediaContent` also exercises nullable
   members and compiler defaults.
@@ -29,6 +34,9 @@ The `Users` and `Clients` schemas come from
 - Each suite uses 16 methods: four libraries × two operations × two representations.
   The Users/Clients suite runs both payload parameters in one invocation (32 cases).
   A failed benchmark fails the run.
+
+Scores are rounded to the nearest operation per second. Charts include the errors reported by JMH;
+full precision, confidence intervals, and individual samples are retained in the raw JSON.
 
 ## MediaContent results
 
@@ -48,9 +56,6 @@ byte APIs, and another machine, so it is not a controlled Fory version-to-versio
 ![Kotlin JSON UTF-8 bytes benchmark throughput](results/utf8_bytes_throughput.png)
 
 ### Throughput
-
-Scores are rounded to the nearest operation per second. Charts include the errors reported by JMH;
-full precision, confidence intervals, and individual samples are retained in the raw JSON.
 
 | Representation | Operation | Fory JSON Kotlin ops/s | kotlinx.serialization ops/s | Moshi ops/s | Jackson Kotlin ops/s |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -72,21 +77,6 @@ operation, computed from unrounded scores.
 | UTF-8 bytes | Deserialize | 6.10× | 6.35× | 8.37× |
 
 In this run, Fory JSON Kotlin delivered 3.63× to 12.12× the throughput of the compared libraries. It had the highest throughput in all four operations.
-
-### Benchmark environment
-
-- Date: 2026-09-07
-- Measured source commit: `cbd1b2a4d018d7686a9f5662ef1ed2b3d76e9823`
-- Machine: Apple M5, arm64, 10 CPU cores, 32 GiB memory
-- OS: macOS 26.4 (25E246)
-- JDK: Homebrew OpenJDK 25.0.3, OpenJDK 64-Bit Server VM
-- Kotlin/compiler serialization plugin: 2.3.20
-- KSP: 2.3.8; Moshi code generation: 1.15.2
-- Gradle: 9.3.0; Gradle JMH plugin: 0.7.3; JMH: 1.37
-- Configuration: 1 fork, 1 thread, 3 × 2-second warmup iterations, 5 × 2-second measurement iterations
-- JVM option: `--add-opens=java.base/java.lang.invoke=ALL-UNNAMED`
-- Libraries: Fory JSON Kotlin 1.7.1 (JSON and core also resolve to 1.7.1), kotlinx.serialization
-  1.11.0, Moshi 1.15.2, Jackson Kotlin 2.22.1
 
 The complete [JMH JSON](results/benchmark_results.json), [process output](results/jmh-output.txt),
 and [environment record](results/environment.json) describe the same run.
@@ -121,20 +111,15 @@ The timestamp formatters may emit different trailing fractional zeros, such as `
 compared exactly, including arbitrary-precision decimals. Fixture generation, verification,
 adapter creation, and codec compilation finish outside the timed methods.
 
-### Inputs and measurement
+### Inputs
 
 | Payload | Target size | Exact UTF-8 bytes | Records |
 | --- | ---: | ---: | ---: |
 | Users | 1000 KB | 1,001,958 | 431 |
 | Clients | 1000 KB | 1,000,779 | 379 |
 
-Measured source commit: `8ac2606f96155ed0dfb5c1882d4c591f3a884285`. This is a separate run from
-MediaContent, on the same Apple M5 / macOS 26.4 / OpenJDK 25.0.3 machine with the same library
-versions and JMH settings listed above: 1 fork, 1 thread, 3 × 2-second warmup iterations, and
-5 × 2-second measurement iterations. The additional Jackson Java time module is 2.22.1.
-All 32 cases completed, providing 160 measurement samples. One operation processes a complete
-document. Scores are rounded to the nearest operation per second; chart error bars and the raw
-JSON retain JMH uncertainty. These measurements describe this corpus and configuration.
+One operation processes a complete document. All 32 cases completed, providing 160 measurement
+samples.
 
 ### Users throughput
 

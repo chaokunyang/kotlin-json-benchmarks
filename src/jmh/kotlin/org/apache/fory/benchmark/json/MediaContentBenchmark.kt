@@ -1,11 +1,31 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 package org.apache.fory.benchmark.json
 
-import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.squareup.moshi.Moshi
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
-import org.apache.fory.json.ForyJson
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.util.concurrent.TimeUnit
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.json.decodeFromStream
+import kotlinx.serialization.json.encodeToStream
+import okio.Buffer
 import org.openjdk.jmh.annotations.Benchmark
 import org.openjdk.jmh.annotations.BenchmarkMode
 import org.openjdk.jmh.annotations.Fork
@@ -17,8 +37,79 @@ import org.openjdk.jmh.annotations.Setup
 import org.openjdk.jmh.annotations.State
 import org.openjdk.jmh.annotations.Threads
 import org.openjdk.jmh.annotations.Warmup
-import java.nio.charset.StandardCharsets
-import java.util.concurrent.TimeUnit
+
+@State(Scope.Thread)
+open class BenchmarkState {
+  lateinit var codecs: BenchmarkCodecs
+  lateinit var expected: MediaContent
+  lateinit var fixtureString: String
+  lateinit var fixtureBytes: ByteArray
+
+  @Setup
+  fun setup() {
+    codecs = BenchmarkCodecs()
+    expected = MediaContentFixture.expected()
+    fixtureBytes = MediaContentFixture.bytes()
+    fixtureString = MediaContentFixture.text(fixtureBytes)
+    verifyFixtureReads()
+    verifyEncodedTreesAndRoundTrips()
+    warmForyPaths()
+  }
+
+  private fun verifyFixtureReads() {
+    check(codecs.foryFromString(fixtureString) == expected)
+    check(codecs.foryFromBytes(fixtureBytes) == expected)
+    check(codecs.kotlinxFromString(fixtureString) == expected)
+    check(codecs.kotlinxFromBytes(fixtureBytes) == expected)
+    check(codecs.moshiFromString(fixtureString) == expected)
+    check(codecs.moshiFromBytes(fixtureBytes) == expected)
+    check(codecs.jacksonFromString(fixtureString) == expected)
+    check(codecs.jacksonFromBytes(fixtureBytes) == expected)
+  }
+
+  private fun verifyEncodedTreesAndRoundTrips() {
+    val foryString = codecs.foryToString(expected)
+    val foryBytes = codecs.foryToBytes(expected)
+    val kotlinxString = codecs.kotlinxToString(expected)
+    val kotlinxBytes = codecs.kotlinxToBytes(expected)
+    val moshiString = codecs.moshiToString(expected)
+    val moshiBytes = codecs.moshiToBytes(expected)
+    val jacksonString = codecs.jacksonToString(expected)
+    val jacksonBytes = codecs.jacksonToBytes(expected)
+
+    val expectedTree = codecs.tree(foryString)
+    for (tree in
+      listOf(
+        codecs.tree(foryBytes),
+        codecs.tree(kotlinxString),
+        codecs.tree(kotlinxBytes),
+        codecs.tree(moshiString),
+        codecs.tree(moshiBytes),
+        codecs.tree(jacksonString),
+        codecs.tree(jacksonBytes)
+      )) {
+      check(tree == expectedTree) { "JSON libraries emitted structurally different output" }
+    }
+
+    check(codecs.foryFromString(foryString) == expected)
+    check(codecs.foryFromBytes(foryBytes) == expected)
+    check(codecs.kotlinxFromString(kotlinxString) == expected)
+    check(codecs.kotlinxFromBytes(kotlinxBytes) == expected)
+    check(codecs.moshiFromString(moshiString) == expected)
+    check(codecs.moshiFromBytes(moshiBytes) == expected)
+    check(codecs.jacksonFromString(jacksonString) == expected)
+    check(codecs.jacksonFromBytes(jacksonBytes) == expected)
+  }
+
+  private fun warmForyPaths() {
+    repeat(32) {
+      codecs.foryToString(expected)
+      codecs.foryToBytes(expected)
+      codecs.foryFromString(fixtureString)
+      codecs.foryFromBytes(fixtureBytes)
+    }
+  }
+}
 
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
@@ -26,125 +117,78 @@ import java.util.concurrent.TimeUnit
 @Measurement(iterations = 5, time = 2)
 @Fork(1)
 @Threads(1)
+@OptIn(ExperimentalSerializationApi::class)
 open class MediaContentBenchmark {
-    @State(Scope.Thread)
-    open class BenchmarkState {
-        lateinit var foryJson: ForyJson
-        lateinit var kotlinxJson: Json
-        lateinit var moshiAdapter: com.squareup.moshi.JsonAdapter<MediaContent>
-        lateinit var jacksonMapper: com.fasterxml.jackson.databind.ObjectMapper
-        lateinit var mediaContent: MediaContent
-        lateinit var jsonString: String
-        lateinit var jsonBytes: ByteArray
+  @Benchmark
+  fun foryToJsonString(state: BenchmarkState): String =
+    state.codecs.fory.toJson(state.expected, state.codecs.foryType)
 
-        @Setup
-        fun setup() {
-            foryJson = ForyJson.builder().build()
-            kotlinxJson = Json {
-                encodeDefaults = true
-                explicitNulls = false
-            }
-            moshiAdapter = Moshi.Builder().build().adapter(MediaContent::class.java)
-            jacksonMapper = jacksonObjectMapper().setDefaultPropertyInclusion(JsonInclude.Include.NON_NULL)
-            jsonString = readResource()
-            jsonBytes = jsonString.toByteArray(StandardCharsets.UTF_8)
-            mediaContent = kotlinxJson.decodeFromString<MediaContent>(jsonString)
+  @Benchmark
+  fun foryToJsonBytes(state: BenchmarkState): ByteArray =
+    state.codecs.fory.toJsonBytes(state.expected, state.codecs.foryType)
 
-            verifyDecoded("Fory JSON", foryJson.fromJson(jsonString, MediaContent::class.java))
-            verifyDecoded("kotlinx.serialization", kotlinxJson.decodeFromString<MediaContent>(jsonString))
-            verifyDecoded("Moshi", requireNotNull(moshiAdapter.fromJson(jsonString)))
-            verifyDecoded("Jackson", jacksonMapper.readValue(jsonString, MediaContent::class.java))
+  @Benchmark
+  fun foryFromJsonString(state: BenchmarkState): MediaContent =
+    state.codecs.fory.fromJson(state.fixtureString, state.codecs.foryType)
 
-            verifyRoundTrip("Fory JSON", foryJson.toJson(mediaContent)) {
-                foryJson.fromJson(it, MediaContent::class.java)
-            }
-            verifyRoundTrip("kotlinx.serialization", kotlinxJson.encodeToString(mediaContent)) {
-                kotlinxJson.decodeFromString<MediaContent>(it)
-            }
-            verifyRoundTrip("Moshi", moshiAdapter.toJson(mediaContent)) {
-                requireNotNull(moshiAdapter.fromJson(it))
-            }
-            verifyRoundTrip("Jackson", jacksonMapper.writeValueAsString(mediaContent)) {
-                jacksonMapper.readValue(it, MediaContent::class.java)
-            }
-        }
+  @Benchmark
+  fun foryFromJsonBytes(state: BenchmarkState): MediaContent =
+    state.codecs.fory.fromJson(state.fixtureBytes, state.codecs.foryType)
 
-        private fun verifyDecoded(library: String, decoded: MediaContent) {
-            check(decoded == mediaContent) { "$library produced different MediaContent" }
-        }
+  @Benchmark
+  fun kotlinxToJsonString(state: BenchmarkState): String =
+    state.codecs.kotlinx.encodeToString(state.codecs.kotlinxSerializer, state.expected)
 
-        private fun verifyRoundTrip(
-            library: String,
-            encoded: String,
-            decode: (String) -> MediaContent,
-        ) {
-            verifyDecoded(library, decode(encoded))
-        }
+  @Benchmark
+  fun kotlinxToJsonBytes(state: BenchmarkState): ByteArray {
+    val output = ByteArrayOutputStream()
+    state.codecs.kotlinx.encodeToStream(state.codecs.kotlinxSerializer, state.expected, output)
+    return output.toByteArray()
+  }
 
-        private fun readResource(): String =
-            checkNotNull(javaClass.classLoader.getResource("data/eishay.json")) {
-                "Missing data/eishay.json"
-            }.readText(StandardCharsets.UTF_8)
-    }
+  @Benchmark
+  fun kotlinxFromJsonString(state: BenchmarkState): MediaContent =
+    state.codecs.kotlinx.decodeFromString(state.codecs.kotlinxSerializer, state.fixtureString)
 
-    @Benchmark
-    fun foryToJsonBytes(state: BenchmarkState): ByteArray = state.foryJson.toJsonBytes(state.mediaContent)
+  @Benchmark
+  fun kotlinxFromJsonBytes(state: BenchmarkState): MediaContent =
+    state.codecs.kotlinx.decodeFromStream(
+      state.codecs.kotlinxSerializer,
+      ByteArrayInputStream(state.fixtureBytes),
+    )
 
-    @Benchmark
-    fun kotlinxToJsonBytes(state: BenchmarkState): ByteArray =
-        state.kotlinxJson.encodeToString(state.mediaContent).toByteArray(StandardCharsets.UTF_8)
+  @Benchmark
+  fun moshiToJsonString(state: BenchmarkState): String =
+    state.codecs.moshiAdapter.toJson(state.expected)
 
-    @Benchmark
-    fun moshiToJsonBytes(state: BenchmarkState): ByteArray =
-        state.moshiAdapter.toJson(state.mediaContent).toByteArray(StandardCharsets.UTF_8)
+  @Benchmark
+  fun moshiToJsonBytes(state: BenchmarkState): ByteArray {
+    val buffer = Buffer()
+    state.codecs.moshiAdapter.toJson(buffer, state.expected)
+    return buffer.readByteArray()
+  }
 
-    @Benchmark
-    fun jacksonToJsonBytes(state: BenchmarkState): ByteArray =
-        state.jacksonMapper.writeValueAsBytes(state.mediaContent)
+  @Benchmark
+  fun moshiFromJsonString(state: BenchmarkState): MediaContent? =
+    state.codecs.moshiAdapter.fromJson(state.fixtureString)
 
-    @Benchmark
-    fun foryToJsonString(state: BenchmarkState): String = state.foryJson.toJson(state.mediaContent)
+  @Benchmark
+  fun moshiFromJsonBytes(state: BenchmarkState): MediaContent? =
+    state.codecs.moshiAdapter.fromJson(Buffer().write(state.fixtureBytes))
 
-    @Benchmark
-    fun kotlinxToJsonString(state: BenchmarkState): String =
-        state.kotlinxJson.encodeToString(state.mediaContent)
+  @Benchmark
+  fun jacksonToJsonString(state: BenchmarkState): String =
+    state.codecs.jacksonWriter.writeValueAsString(state.expected)
 
-    @Benchmark
-    fun moshiToJsonString(state: BenchmarkState): String = state.moshiAdapter.toJson(state.mediaContent)
+  @Benchmark
+  fun jacksonToJsonBytes(state: BenchmarkState): ByteArray =
+    state.codecs.jacksonWriter.writeValueAsBytes(state.expected)
 
-    @Benchmark
-    fun jacksonToJsonString(state: BenchmarkState): String =
-        state.jacksonMapper.writeValueAsString(state.mediaContent)
+  @Benchmark
+  fun jacksonFromJsonString(state: BenchmarkState): MediaContent =
+    state.codecs.jacksonReader.readValue(state.fixtureString)
 
-    @Benchmark
-    fun foryFromJsonBytes(state: BenchmarkState): MediaContent =
-        state.foryJson.fromJson(state.jsonBytes, MediaContent::class.java)
-
-    @Benchmark
-    fun kotlinxFromJsonBytes(state: BenchmarkState): MediaContent =
-        state.kotlinxJson.decodeFromString(state.jsonBytes.toString(StandardCharsets.UTF_8))
-
-    @Benchmark
-    fun moshiFromJsonBytes(state: BenchmarkState): MediaContent =
-        requireNotNull(state.moshiAdapter.fromJson(state.jsonBytes.toString(StandardCharsets.UTF_8)))
-
-    @Benchmark
-    fun jacksonFromJsonBytes(state: BenchmarkState): MediaContent =
-        state.jacksonMapper.readValue(state.jsonBytes, MediaContent::class.java)
-
-    @Benchmark
-    fun foryFromJsonString(state: BenchmarkState): MediaContent =
-        state.foryJson.fromJson(state.jsonString, MediaContent::class.java)
-
-    @Benchmark
-    fun kotlinxFromJsonString(state: BenchmarkState): MediaContent =
-        state.kotlinxJson.decodeFromString(state.jsonString)
-
-    @Benchmark
-    fun moshiFromJsonString(state: BenchmarkState): MediaContent =
-        requireNotNull(state.moshiAdapter.fromJson(state.jsonString))
-
-    @Benchmark
-    fun jacksonFromJsonString(state: BenchmarkState): MediaContent =
-        state.jacksonMapper.readValue(state.jsonString, MediaContent::class.java)
+  @Benchmark
+  fun jacksonFromJsonBytes(state: BenchmarkState): MediaContent =
+    state.codecs.jacksonReader.readValue(state.fixtureBytes)
 }

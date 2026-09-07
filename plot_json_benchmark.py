@@ -48,6 +48,10 @@ def parse_args() -> argparse.Namespace:
         default="results",
         help="Directory for generated charts",
     )
+    parser.add_argument("--payload", choices=("users", "clients"),
+                        help="Required when plotting the Users/Clients suite")
+    parser.add_argument("--size-kb", type=int, default=1000,
+                        help="Select the Users/Clients size parameter (default: 1000)")
     return parser.parse_args()
 
 
@@ -74,6 +78,8 @@ def ops_per_second(value: float, unit: str) -> float:
 
 def collect_results(
     benchmarks: list[dict[str, Any]],
+    payload: str | None = None,
+    size_kb: int = 1000,
 ) -> dict[tuple[str, str], dict[str, tuple[float, float]]]:
     results = {
         (operation, representation): {}
@@ -83,6 +89,13 @@ def collect_results(
     for benchmark in benchmarks:
         match = BENCHMARK_PATTERN.search(benchmark.get("benchmark", ""))
         if match is None:
+            continue
+        params = benchmark.get("params", {})
+        if payload is None and "payload" in params:
+            raise ValueError("Use --payload to select Users or Clients results")
+        if payload is not None and (
+            params.get("payload") != payload or str(params.get("sizeKb")) != str(size_kb)
+        ):
             continue
         case = (
             match.group("operation").lower(),
@@ -94,7 +107,12 @@ def collect_results(
         error = ops_per_second(float(metric.get("scoreError", 0.0)), unit)
         if not math.isfinite(error):
             error = 0.0
-        results[case][match.group("serializer")] = (score, error)
+        serializer = match.group("serializer")
+        if serializer in results[case]:
+            raise ValueError(f"Duplicate JMH result for {serializer} {case}")
+        if not math.isfinite(score) or score <= 0:
+            raise ValueError(f"Invalid throughput for {serializer} {case}: {score}")
+        results[case][serializer] = (score, error)
 
     missing = [
         f"{serializer}{operation.title()}Json{representation.title()}"
@@ -132,6 +150,7 @@ def render_plot(
     results: dict[tuple[str, str], dict[str, tuple[float, float]]],
     representation: str,
     output: Path,
+    model_title: str = "",
 ) -> None:
     figure, axes = plt.subplots(1, 2, figsize=(12.5, 5.2))
     x = np.arange(len(SERIALIZERS), dtype=float)
@@ -164,7 +183,7 @@ def render_plot(
     axes[0].set_ylabel("Throughput (ops/sec)")
     representation_title = "String" if representation == "string" else "UTF-8 Bytes"
     figure.suptitle(
-        f"Kotlin JSON {representation_title} Serialization and Deserialization Throughput",
+        f"Kotlin JSON {model_title}{representation_title} Serialization and Deserialization Throughput",
         y=0.98,
     )
     figure.tight_layout(rect=[0, 0, 1, 0.95], w_pad=2.4)
@@ -176,11 +195,13 @@ def main() -> None:
     args = parse_args()
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    results = collect_results(load_results(Path(args.json_file)))
-    string_chart = output_dir / "string_throughput.png"
-    bytes_chart = output_dir / "utf8_bytes_throughput.png"
-    render_plot(results, "string", string_chart)
-    render_plot(results, "bytes", bytes_chart)
+    results = collect_results(load_results(Path(args.json_file)), args.payload, args.size_kb)
+    prefix = f"{args.payload}_" if args.payload else ""
+    title = f"{args.payload.title()} ({args.size_kb} KB) — " if args.payload else ""
+    string_chart = output_dir / f"{prefix}string_throughput.png"
+    bytes_chart = output_dir / f"{prefix}utf8_bytes_throughput.png"
+    render_plot(results, "string", string_chart, title)
+    render_plot(results, "bytes", bytes_chart, title)
     print(f"Generated {string_chart}")
     print(f"Generated {bytes_chart}")
 

@@ -32,3 +32,6 @@ build/
 # IntelliJ IDEA
 .idea/
 *.iml
+
+# Python plot tooling
+__pycache__/

@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.apache.fory:fory-json:1.6.0")
+    implementation("org.apache.fory:fory-json-kotlin:1.7.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
     implementation("com.squareup.moshi:moshi:1.15.2")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.22.1")
@@ -46,5 +46,6 @@ jmh {
     includes.set(listOf("MediaContentBenchmark"))
     jvmArgsAppend.set(listOf("--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"))
     resultFormat.set("JSON")
+    failOnError.set(true)
     resultsFile.set(layout.buildDirectory.file("reports/jmh/results.json"))
 }

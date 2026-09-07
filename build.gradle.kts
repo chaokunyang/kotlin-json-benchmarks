@@ -17,6 +17,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
     implementation("com.squareup.moshi:moshi:1.15.2")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.22.1")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.22.1")
 
     ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.2")
 
@@ -43,9 +44,10 @@ jmh {
     threads.set(1)
     benchmarkMode.set(listOf("thrpt"))
     timeUnit.set("s")
-    includes.set(listOf("MediaContentBenchmark"))
+    includes.set(listOf(providers.gradleProperty("jmhInclude").getOrElse("MediaContentBenchmark")))
     jvmArgsAppend.set(listOf("--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"))
     resultFormat.set("JSON")
     failOnError.set(true)
-    resultsFile.set(layout.buildDirectory.file("reports/jmh/results.json"))
+    resultsFile.set(file(providers.gradleProperty("jmhResultFile")
+        .getOrElse("build/reports/jmh/results.json")))
 }

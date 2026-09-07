@@ -1,0 +1,75 @@
+{
+  "date": "2026-09-07",
+  "sourceCommit": "8ac2606f96155ed0dfb5c1882d4c591f3a884285",
+  "command": "./gradlew jmh -PjmhInclude=UsersClientsBenchmark -PjmhResultFile=build/reports/jmh/users-clients.json --console=plain > results/users-clients/jmh-output.txt 2>&1",
+  "machine": {
+    "cpu": "Apple M5",
+    "architecture": "arm64",
+    "logicalCpus": 10,
+    "memoryBytes": 34359738368,
+    "os": "macOS 26.4",
+    "osBuild": "25E246"
+  },
+  "jdkVersion": "25.0.3",
+  "vmName": "OpenJDK 64-Bit Server VM",
+  "vmVersion": "25.0.3",
+  "jvmArgs": [
+    "-Dfile.encoding=UTF-8",
+    "-Djava.io.tmpdir=/Users/shawnyang/Desktop/dev/kotlin-json-benchmarks/build/tmp/jmh",
+    "-Duser.country=US",
+    "-Duser.language=en",
+    "-Duser.variant",
+    "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED"
+  ],
+  "kotlin": "2.3.20",
+  "ksp": "2.3.8",
+  "gradle": "9.3.0",
+  "gradleJmhPlugin": "0.7.3",
+  "jmh": "1.37",
+  "libraries": {
+    "fory-json-kotlin": "1.7.1",
+    "fory-json": "1.7.1",
+    "fory-core": "1.7.1",
+    "kotlinx-serialization-json": "1.11.0",
+    "moshi": "1.15.2",
+    "moshi-kotlin-codegen": "1.15.2",
+    "jackson-module-kotlin": "2.22.1",
+    "jackson-datatype-jsr310": "2.22.1"
+  },
+  "measurement": {
+    "mode": "thrpt",
+    "threads": 1,
+    "forks": 1,
+    "warmupIterations": 3,
+    "warmupTime": "2 s",
+    "measurementIterations": 5,
+    "measurementTime": "2 s"
+  },
+  "resultsSha256": "90284673c9a2f05a5b652f1f7670ce14fe8e30e5cc3faf69725ce2a83f9b8a15",
+  "processOutputSha256": "c7cfed96a996d571a4e6bdb84e98319f4f00307b8a770c4f29cc4c9c0e4081df",
+  "methodCount": 16,
+  "measurementSamples": 160,
+  "startedAt": "2026-09-07T23:05:21.303007+08:00",
+  "reportedAt": "2026-09-07T23:14:52.957868+08:00",
+  "baseCommit": "7cf0bcdf5cd92648f430cea5a427fef5dec3283b",
+  "upstreamSchemaCommit": "9e086553126159a8c97918df8431b21941e44973",
+  "fixtureGenerator": "java.util.Random, seed 20260811114233; complete records until Jackson compact UTF-8 reaches sizeKb * 1000 bytes; not the exact upstream corpus",
+  "seed": 20260811114233,
+  "fixtures": {
+    "users": {
+      "sizeKb": 1000,
+      "records": 431,
+      "bytes": 1001958,
+      "sha256": "7714adc091a27cb27900ff81989e66aaa7a7fb1fa4c875c833650344fdc9a555"
+    },
+    "clients": {
+      "sizeKb": 1000,
+      "records": 379,
+      "bytes": 1000779,
+      "sha256": "47db70666a71dcc2ad447e40e30d7d5ce7bca12488f0c5e9eb9dbbb588ae9cde"
+    }
+  },
+  "caseCount": 32,
+  "jmhGeneratedResultsSha256": "eead29162533f0e64a4c6119707f2f14b4f2fe8660deaddc79db179f6a339c61",
+  "resultsNormalization": "Trailing blank lines replaced with one final newline; JMH values unchanged."
+}
